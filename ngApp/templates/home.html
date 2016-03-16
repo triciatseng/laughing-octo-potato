@@ -1,5 +1,18 @@
-<div class="container">
-  <table class="table table-bordered table-striped">
+
+<div ng-init="sort='-dateCreated'">
+
+<div class="container form-inline" style="text-align:center;">
+<div class="well" style="text-align:left;">
+  <label>Search by Guest</label>&nbsp;&nbsp;<input type="text" ng-model="search.author" class="form-control" maxlength="100"/>&nbsp;&nbsp;&nbsp;&nbsp;
+  <label>Search by Message</label>&nbsp;&nbsp;<input type="text" ng-model="search.message" class="form-control" />&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-info" ng-show="sort === '-dateCreated'" ng-click="sort='dateCreated'">Sort Date</button>
+    <button type="button" class="btn btn-info" ng-show="sort === 'dateCreated'" ng-click="sort='-dateCreated'">Sort Date</button>
+
+</div>
+<div ng-show="vm.isLoading">
+  Loading, please wait!
+</div>
+  <table class="table table-bordered table-striped" ng-show="!vm.isLoading">
     <thead>
       <tr>
         <th>
@@ -14,8 +27,8 @@
 
       </tr>
     </thead>
-    <tbody>
-      <tr  ng-repeat="c in vm.entries">
+    <tbody style="text-align: left;">
+      <tr  ng-repeat="c in vm.entries | filter:search | orderBy:sort">
         <td>
           {{c.dateCreated | date:'shortDate'}}
         </td>
@@ -28,5 +41,7 @@
       </tr>
     </tbody>
   </table>
+
+</div>
 
 </div>

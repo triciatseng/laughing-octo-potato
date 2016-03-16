@@ -13,6 +13,10 @@ namespace app.Services{
       return this.GuestbookResource.query();
     }
 
+    public getAllAsync(){
+      return this.GuestbookResource.query().$promise;
+    }
+    
     public create(entry:app.Interfaces.IGuestbook){
       entry.dateCreated = new Date();
       return this.GuestbookResource.save(entry).$promise;
