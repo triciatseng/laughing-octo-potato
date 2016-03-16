@@ -1,0 +1,11 @@
+<form ng-submit="vm.addEntry( )" style="display: inline-block; padding: 20px;">
+      <label>Name: </label>
+      <input type="text" ng-model="vm.entry.author" class="form-control" />
+  <br />
+    <label>Message: </label>
+    <textarea cols="50" rows="4" ng-model="vm.entry.message" class="form-control"></textarea>
+<br /><br />
+<div style="text-align:center;">
+  <button type="submit" class="btn btn-success">Submit</button>
+</div>
+</form>
