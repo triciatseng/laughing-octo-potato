@@ -23,7 +23,7 @@
           <a ui-sref="Details({id:c.id})">{{c.author}}</a>
         </td>
         <td style="white-space: pre-line;">
-            {{c.message}}
+            {{c.message | truncate:140}}
         </td>
       </tr>
     </tbody>
