@@ -1,11 +1,20 @@
-<form ng-submit="vm.addEntry( )" style="display: inline-block; padding: 20px;">
+<form ng-submit="vm.addEntry( )" style="display: inline-block; padding: 20px;" name="addEntryForm">
       <label>Name: </label>
-      <input type="text" ng-model="vm.entry.author" class="form-control" />
-  <br />
+      <input type="text" name="author" ng-model="vm.entry.author" class="form-control" required/>
+  <div ng-messages="addEntryForm.author.$error" role="alert" style="color:red">
+    <div ng-message="required">
+      *Author name is required!
+    </div>
+  </div><br />
     <label>Message: </label>
-    <textarea cols="50" rows="4" ng-model="vm.entry.message" class="form-control"></textarea>
-<br /><br />
+    <textarea name="message" cols="50" rows="4" ng-model="vm.entry.message" class="form-control" required></textarea>
+    <div ng-messages="addEntryForm.message.$error" role="alert" style="color:red">
+      <div ng-message="required">
+        *Message is required!
+      </div>
+    </div>
+    <br />
 <div style="text-align:center;">
-  <button type="submit" class="btn btn-success">Submit</button>
+  <button type="submit" class="btn btn-success" ng-disabled="addEntryForm.$invalid">Submit</button>
 </div>
 </form>

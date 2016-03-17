@@ -24,7 +24,9 @@
         <th>
           Message
         </th>
+        <th>
 
+        </th>
       </tr>
     </thead>
     <tbody style="text-align: left;">
@@ -37,6 +39,9 @@
         </td>
         <td style="white-space: pre-line;">
             {{c.message | truncate:140}}
+        </td>
+        <td>
+          <button type="button" class="btn btn-info" ng-click="vm.openModal(c)">Open</button>
         </td>
       </tr>
     </tbody>
